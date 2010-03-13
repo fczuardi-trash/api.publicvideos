@@ -5,7 +5,7 @@ interface for the database of "Public Videos":http://alpha.publicvideos.org
 
 h2. API Documentation
 
-Documentation on how to use the API is available at http://wiki.publicvideos.org/api/main
+Documentation on how to use the API is available at "Public Videos API":http://wiki.publicvideos.org/api/main
 
 h2. Requirements
 
