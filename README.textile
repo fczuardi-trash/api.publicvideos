@@ -13,6 +13,9 @@ TBD
 
 h2. Installation
 
-TBD
+bc. git clone git://github.com/fczuardi/api.publicvideos.git
+cd api.publicvideos
+git submodule init lib/redis-py
+git submodule update lib/redis-py
 
 h2. License (BSD)
