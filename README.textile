@@ -1,0 +1,18 @@
+h1. api.publicvideos
+
+api.publicvideos is the set of scripts that creates an accessible REST 
+interface for the database of "Public Videos":http://alpha.publicvideos.org
+
+h2. API Documentation
+
+Documentation on how to use the API is available at http://wiki.publicvideos.org/api/main
+
+h2. Requirements
+
+TBD
+
+h2. Installation
+
+TBD
+
+h2. License (BSD)
