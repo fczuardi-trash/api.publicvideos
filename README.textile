@@ -9,6 +9,7 @@ Documentation on how to use the API is available at "Public Videos API":http://w
 
 h2. Requirements
 
+* Python
 * "pycurl":http://pycurl.sourceforge.net/
 * "simplejson":http://pypi.python.org/pypi/simplejson/
 * "Tornado":http://www.tornadoweb.org/
