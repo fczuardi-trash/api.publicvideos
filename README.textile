@@ -43,7 +43,10 @@ sudo python setup.py install
 
 h4. Redis
 
-TBD
+bc. git submodule init deps/redis
+git submodule update deps/redis
+cd deps/redis/
+make
 
 h4. redis-py
 
