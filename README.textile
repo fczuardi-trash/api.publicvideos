@@ -17,5 +17,7 @@ bc. git clone git://github.com/fczuardi/api.publicvideos.git
 cd api.publicvideos
 git submodule init lib/redis-py
 git submodule update lib/redis-py
+git submodule init lib/tornado
+git submodule update lib/tornado
 
 h2. License (BSD)
