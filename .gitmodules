@@ -4,3 +4,6 @@
 [submodule "deps/redis-py"]
 	path = deps/redis-py
 	url = git://github.com/andymccurdy/redis-py.git
+[submodule "deps/redis"]
+	path = deps/redis
+	url = git://github.com/antirez/redis.git
