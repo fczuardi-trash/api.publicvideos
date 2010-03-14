@@ -16,18 +16,8 @@ h2. Installation
 h3. Getting the code
 
 bc. git clone git://github.com/fczuardi/api.publicvideos.git
-cd api.publicvideos
-git submodule init lib/redis-py
-git submodule update lib/redis-py
-git submodule init lib/tornado
-git submodule update lib/tornado
 
-h3. Installing requirements
-
-h4. redis-py
-
-bc. cd lib/redis-py/
-python setup.py install
+h3. Installing dependencies
 
 h4. pycurl and simplejson (tornado requirement)
 
@@ -41,8 +31,18 @@ bc. sudo apt-get install python-pycurl python-simplejson
 
 h4. tornado web
 
-bc. cd lib/tornado/
+bc. git submodule init deps/tornado
+git submodule update deps/tornado
+cd deps/tornado/
 python setup.py build
 sudo python setup.py install
+
+h4. redis-py
+
+bc. git submodule init deps/redis-py
+git submodule update deps/redis-py
+cd deps/redis-py/
+python setup.py install
+
 
 h2. License (BSD)
