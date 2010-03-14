@@ -9,21 +9,17 @@ Documentation on how to use the API is available at "Public Videos API":http://w
 
 h2. Requirements
 
-TBD
+* "pycurl":http://pycurl.sourceforge.net/
+* "simplejson":http://pypi.python.org/pypi/simplejson/
+* "Tornado":http://www.tornadoweb.org/
+* "Redis":http://code.google.com/p/redis/
+* "redis-py":http://github.com/andymccurdy/redis-py
 
 h2. Installation
 
 h3. Getting the code
 
 bc. git clone git://github.com/fczuardi/api.publicvideos.git
-
-h3. Requirements
-
-* "pycurl":http://pycurl.sourceforge.net/
-* "simplejson":http://pypi.python.org/pypi/simplejson/
-* "Tornado":http://www.tornadoweb.org/
-* "Redis":http://code.google.com/p/redis/
-* "redis-py":http://github.com/andymccurdy/redis-py
 
 h3. Installing dependencies
 
