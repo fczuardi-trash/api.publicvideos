@@ -1,3 +1,6 @@
 [submodule "lib/redis-py"]
 	path = lib/redis-py
 	url = git://github.com/andymccurdy/redis-py.git
+[submodule "lib/tornado"]
+	path = lib/tornado
+	url = git://github.com/facebook/tornado.git
