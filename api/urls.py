@@ -1,7 +1,7 @@
 import tornado.web
 from api.methods import *
 
-urlpatterns = tornado.web.Application([
+patterns = tornado.web.Application([
     (r"/", MainHandler),
     (r"(/v/([0-9]+)/|/)clip/?", GetRandomClip),
     (r"(/v/([0-9]+)/|/)clip/([0-9]+)/?", GetClip),

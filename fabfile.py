@@ -35,15 +35,15 @@ __license__ = "BSD"
 from fabric.api import *
 import tornado.httpserver
 import tornado.ioloop
+from api import urls
 
-from api.urls import urlpatterns
-
-def web(port=8888):
+def start(port=8888):
   """Start the web server.
   
   Parameters:
   port: which port to run the server."""
-  http_server = tornado.httpserver.HTTPServer(urlpatterns)
-  http_server.listen(port)
+  
+  http_server = tornado.httpserver.HTTPServer(urls.patterns)
+  http_server.listen(int(port))
   print "Server running on port %s..." % port
   tornado.ioloop.IOLoop.instance().start()
