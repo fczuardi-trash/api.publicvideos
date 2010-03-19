@@ -1,0 +1,4 @@
+This is the folder where the API database is stored. 
+
+publicvideos.rdb : the Redis DB dump
+appendonly.aof : The append file to be used while the database is running.
