@@ -96,22 +96,22 @@ author_mboxes = {
   'id4':'c8d4eed17b40ace37ef4beed7ca7146952723f3d'
 }
 author_obj = {
-  'id' : '3',
   'first_name' : 'Ace',
   'last_name' : 'of Spades',
   'mbox_sha1sum' : author_mboxes['id3']
 }
-r.set('author:3', json.dumps(author_obj, sort_keys=True))
-r.rpush('authors', 'author:3')
+key = 'author:%s' % author_mboxes['id3']
+r.set(key, json.dumps(author_obj, sort_keys=True))
+r.rpush('authors', key)
 
 author_obj = {
-  'id' : '4',
   'first_name' : 'Marcio',
   'last_name' : 'Galli',
   'mbox_sha1sum' : author_mboxes['id4']
 }
-r.set('author:4', json.dumps(author_obj, sort_keys=True))
-r.rpush('authors', 'author:4')
+key = 'author:%s' % author_mboxes['id4']
+r.set(key, json.dumps(author_obj, sort_keys=True))
+r.rpush('authors', key)
 print '2 authors added.'
 
 
@@ -154,7 +154,7 @@ for clip in video_json:
     sets[set_slug] = True
     r.set(key, json.dumps(set_obj, sort_keys=True))
     r.rpush('sets', key)
-    r.rpush('sets:author:%s' % set_slug, key)
+    r.rpush('sets:author:%s' % fields['author'], key)
 
 print '%s clips and %s sets added.' % (r.llen('clips'), r.llen('sets'))
 
