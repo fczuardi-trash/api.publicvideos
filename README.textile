@@ -56,7 +56,7 @@ h4. redis-py
 bc. git submodule init deps/redis-py
 git submodule update deps/redis-py
 cd deps/redis-py/
-python setup.py install
+sudo python setup.py install
 
 h4. Fabric
 
