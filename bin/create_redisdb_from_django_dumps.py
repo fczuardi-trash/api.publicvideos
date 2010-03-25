@@ -53,7 +53,7 @@ for transcoder in transcodingjob_json:
   #create the objects
   r.set(key, json.dumps(fields, sort_keys=True))
   #update the transcoders list
-  r.rpush('transcoders', key)
+  r.lpush('transcoders', key)
 
 print '%s transcoders added.' % r.llen('transcoders')
 
@@ -70,7 +70,7 @@ for transcoding_step in transcodingpass_json:
   #create the objects
   r.set(key, json.dumps(fields, sort_keys=True))
   #update the transcoders list
-  r.rpush('transcoding_steps', key)
+  r.lpush('transcoding_steps', key)
 
 print '%s transcoding_steps added.' % r.llen('transcoding_steps')
 
@@ -88,7 +88,7 @@ for i in transcoders.keys():
   steps = []
   for j in range(1,len(transcoders[i])+1):
     list_name = 'transcoding_steps:transcoder:%s' % i
-    r.rpush(list_name, transcoders[i][j])
+    r.lpush(list_name, transcoders[i][j])
 
 #authors
 author_mboxes = {
@@ -102,7 +102,7 @@ author_obj = {
 }
 key = 'author:%s' % author_mboxes['id3']
 r.set(key, json.dumps(author_obj, sort_keys=True))
-r.rpush('authors', key)
+r.lpush('authors', key)
 
 author_obj = {
   'first_name' : 'Marcio',
@@ -111,7 +111,7 @@ author_obj = {
 }
 key = 'author:%s' % author_mboxes['id4']
 r.set(key, json.dumps(author_obj, sort_keys=True))
-r.rpush('authors', key)
+r.lpush('authors', key)
 print '2 authors added.'
 
 
@@ -141,9 +141,9 @@ for clip in video_json:
   #clips
   key = 'clip:%s' % clip['pk']
   r.set(key, json.dumps(fields, sort_keys=True))
-  r.rpush('clips', key)
-  r.rpush('clips:author:%s' % fields['author'], key)
-  r.rpush('clips:set:%s' % set_slug, key)
+  r.lpush('clips', key)
+  r.lpush('clips:author:%s' % fields['author'], key)
+  r.lpush('clips:set:%s' % set_slug, key)
   #sets
   key = 'set:%s' % fields['set_slug']
   if set_slug not in sets.keys():
@@ -153,8 +153,8 @@ for clip in video_json:
     }
     sets[set_slug] = True
     r.set(key, json.dumps(set_obj, sort_keys=True))
-    r.rpush('sets', key)
-    r.rpush('sets:author:%s' % fields['author'], key)
+    r.lpush('sets', key)
+    r.lpush('sets:author:%s' % fields['author'], key)
 
 print '%s clips and %s sets added.' % (r.llen('clips'), r.llen('sets'))
 
@@ -175,11 +175,11 @@ for version in videoversion_json:
   #create the objects
   r.set(key, json.dumps(fields, sort_keys=True))
   #update the transcoders list
-  r.rpush('versions', key)
-  r.rpush('versions:clip:%s' % fields['source'], key)
-  r.rpush('versions:transcoder:%s' % fields['transcoded_with'], key)  
-  r.rpush('versions:transcoder:%s:author:%s' % (fields['transcoded_with'],clip_json['author']), key)
-  r.rpush('versions:transcoder:%s:set:%s' % (fields['transcoded_with'],clip_json['set_slug']), key)
+  r.lpush('versions', key)
+  r.lpush('versions:clip:%s' % fields['source'], key)
+  r.lpush('versions:transcoder:%s' % fields['transcoded_with'], key)  
+  r.lpush('versions:transcoder:%s:author:%s' % (fields['transcoded_with'],clip_json['author']), key)
+  r.lpush('versions:transcoder:%s:set:%s' % (fields['transcoded_with'],clip_json['set_slug']), key)
 
 print '%s versions added.' % (r.llen('versions'))
 print 'Done'
