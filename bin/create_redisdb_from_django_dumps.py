@@ -92,9 +92,19 @@ for i in transcoders.keys():
 
 #authors
 author_mboxes = {
+  'id1':'72b4a06d30d280b8e06437cca389c75634d49197',
   'id3':'04dded97254eab027077f6ebbacba4ec2a84baf1',
   'id4':'c8d4eed17b40ace37ef4beed7ca7146952723f3d'
 }
+author_obj = {
+  'first_name' : 'Fabricio',
+  'last_name' : 'Zuardi',
+  'mbox_sha1sum' : author_mboxes['id1']
+}
+key = 'author:%s' % author_mboxes['id1']
+r.set(key, json.dumps(author_obj, sort_keys=True))
+r.lpush('authors', key)
+
 author_obj = {
   'first_name' : 'Ace',
   'last_name' : 'of Spades',
@@ -112,7 +122,7 @@ author_obj = {
 key = 'author:%s' % author_mboxes['id4']
 r.set(key, json.dumps(author_obj, sort_keys=True))
 r.lpush('authors', key)
-print '2 authors added.'
+print '%s authors added.' % r.llen('authors')
 
 
 #clips and sets
