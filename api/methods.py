@@ -50,7 +50,7 @@ class MainHandler(tornado.web.RequestHandler):
     self.redirect("http://wiki.publicvideos.org/api/main")
 
 class GetClip(tornado.web.RequestHandler):
-  def get(self, v_blurb, api_version, clip_id, options):
+  def get(self, v_blurb, api_version, clip_id):
     return_json_response(self, get_object('clip', clip_id))
 
 class GetRandomClip(tornado.web.RequestHandler):
